@@ -14,6 +14,9 @@
 		62A317291F5C781100187D42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62A317271F5C781100187D42 /* LaunchScreen.storyboard */; };
 		62A317341F5C781100187D42 /* SCaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A317331F5C781100187D42 /* SCaleTests.swift */; };
 		62A3173F1F5C781100187D42 /* SCaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3173E1F5C781100187D42 /* SCaleUITests.swift */; };
+		62A3174D1F5C935C00187D42 /* TestDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3174C1F5C935C00187D42 /* TestDraw.swift */; };
+		62A3174F1F5C938500187D42 /* MojiDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3174E1F5C938500187D42 /* MojiDraw.swift */; };
+		62A317511F5C944D00187D42 /* DrawRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A317501F5C944D00187D42 /* DrawRect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		62A3173A1F5C781100187D42 /* SCaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A3173E1F5C781100187D42 /* SCaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCaleUITests.swift; sourceTree = "<group>"; };
 		62A317401F5C781100187D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62A3174C1F5C935C00187D42 /* TestDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDraw.swift; sourceTree = "<group>"; };
+		62A3174E1F5C938500187D42 /* MojiDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MojiDraw.swift; sourceTree = "<group>"; };
+		62A317501F5C944D00187D42 /* DrawRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawRect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			children = (
 				62A3171E1F5C781100187D42 /* AppDelegate.swift */,
 				62A317201F5C781100187D42 /* ViewController.swift */,
+				62A317501F5C944D00187D42 /* DrawRect.swift */,
+				62A3174C1F5C935C00187D42 /* TestDraw.swift */,
+				62A3174E1F5C938500187D42 /* MojiDraw.swift */,
 				62A317221F5C781100187D42 /* Main.storyboard */,
 				62A317251F5C781100187D42 /* Assets.xcassets */,
 				62A317271F5C781100187D42 /* LaunchScreen.storyboard */,
@@ -193,6 +202,7 @@
 				TargetAttributes = {
 					62A3171A1F5C781100187D42 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = H2K94777A3;
 						ProvisioningStyle = Automatic;
 					};
 					62A3172E1F5C781100187D42 = {
@@ -259,7 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A317511F5C944D00187D42 /* DrawRect.swift in Sources */,
+				62A3174D1F5C935C00187D42 /* TestDraw.swift in Sources */,
 				62A317211F5C781100187D42 /* ViewController.swift in Sources */,
+				62A3174F1F5C938500187D42 /* MojiDraw.swift in Sources */,
 				62A3171F1F5C781100187D42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H2K94777A3;
 				INFOPLIST_FILE = SCale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aprime.SCale;
@@ -424,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = H2K94777A3;
 				INFOPLIST_FILE = SCale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aprime.SCale;
@@ -505,6 +520,7 @@
 				62A317451F5C781100187D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62A317461F5C781100187D42 /* Build configuration list for PBXNativeTarget "SCaleTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +529,7 @@
 				62A317481F5C781100187D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62A317491F5C781100187D42 /* Build configuration list for PBXNativeTarget "SCaleUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +538,7 @@
 				62A3174B1F5C781100187D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
