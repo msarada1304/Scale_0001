@@ -14,6 +14,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var Root_note: UISegmentedControl!
     @IBOutlet weak var Scale_cont: UISegmentedControl!
+    @IBOutlet weak var Instruments: UISegmentedControl!
     
     let imageBag = UIImageView()
     let guitar_height = 212
@@ -225,8 +226,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Scale_cont.center = CGPoint(x: self.view.frame.width/2, y: 340)
+        Scale_cont.center = CGPoint(x: self.view.frame.width/2 - 50, y: 340)
         Root_note.center = CGPoint(x: self.view.frame.width/2, y:50)
+        Instruments.center = CGPoint(x: self.view.frame.width/2 + 280, y:340)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
