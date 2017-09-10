@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		624F95E51F64EDB200A78246 /* DrawPiano.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624F95E41F64EDB200A78246 /* DrawPiano.swift */; };
 		62A3171F1F5C781100187D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3171E1F5C781100187D42 /* AppDelegate.swift */; };
 		62A317211F5C781100187D42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A317201F5C781100187D42 /* ViewController.swift */; };
 		62A317241F5C781100187D42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62A317221F5C781100187D42 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		624F95E41F64EDB200A78246 /* DrawPiano.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawPiano.swift; sourceTree = "<group>"; };
 		62A3171B1F5C781100187D42 /* SCale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A3171E1F5C781100187D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62A317201F5C781100187D42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		62A3171D1F5C781100187D42 /* SCale */ = {
 			isa = PBXGroup;
 			children = (
+				624F95E41F64EDB200A78246 /* DrawPiano.swift */,
 				62A3171E1F5C781100187D42 /* AppDelegate.swift */,
 				62A317201F5C781100187D42 /* ViewController.swift */,
 				62A317501F5C944D00187D42 /* DrawRect.swift */,
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62A317511F5C944D00187D42 /* DrawRect.swift in Sources */,
+				624F95E51F64EDB200A78246 /* DrawPiano.swift in Sources */,
 				62A3174D1F5C935C00187D42 /* TestDraw.swift in Sources */,
 				62A317211F5C781100187D42 /* ViewController.swift in Sources */,
 				62A3174F1F5C938500187D42 /* MojiDraw.swift in Sources */,
