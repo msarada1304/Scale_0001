@@ -18,13 +18,14 @@ class DrawPiano: UIView {
         
         let myRect1: UIBezierPath = UIBezierPath(rect: CGRect(x:0, y:0, width:frame.size.width, height:frame.size.height))
         
+        let keyInt = 38
         
         UIColor.black.setFill()
         myRect1.fill()
         
         let x0 = 266
         for n in 0...20{
-            let white_key: UIBezierPath = UIBezierPath(rect: CGRect(x:1+n*38, y:1, width:37, height:198))
+            let white_key: UIBezierPath = UIBezierPath(rect: CGRect(x:1+n*keyInt, y:1, width:keyInt-1, height:198))
             UIColor.white.setFill()
             white_key.fill()
         }
@@ -32,12 +33,12 @@ class DrawPiano: UIView {
         for l in 0...2
         {
             for n in 0...1{
-                let black_key: UIBezierPath = UIBezierPath(rect: CGRect(x:x0*l+25+n*38, y:1, width:25, height:120))
+                let black_key: UIBezierPath = UIBezierPath(rect: CGRect(x:x0*l+25+n*keyInt, y:1, width:25, height:120))
                 UIColor.black.setFill()
                 black_key.fill()
             }
             for n in 0...2{
-                let black_key2: UIBezierPath = UIBezierPath(rect: CGRect(x:x0*l+140+n*38, y:1, width:25, height:120))
+                let black_key2: UIBezierPath = UIBezierPath(rect: CGRect(x:x0*l+140+n*keyInt, y:1, width:25, height:120))
                 UIColor.black.setFill()
                 black_key2.fill()
             }

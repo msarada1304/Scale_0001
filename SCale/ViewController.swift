@@ -44,7 +44,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     var  GMaj=[3,5,7,8,10,12,14,15,
                17,19,20,22,24,26,27,
                29,31,32,34,36,38,39,
-               40,42,43,45,47,49,50]
+               40,42,43,45,47,49,50,
+               51,53,54,56,58,60,61,
+               62,64,65,66,68,70,71]
     
     var PScale=[0,2,4,5,7,9,11,
                 12,14,16,17,19,21,23,
@@ -117,41 +119,41 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
         switch sender.selectedSegmentIndex {
         case 0://C
-            g_root = -4
+            g_root = -16
             draw_inst(root:g_root)
         case 1://C#
-            g_root = -3
+            g_root = -15
             draw_inst(root:g_root)
         case 2://D
-             g_root = -2
+             g_root = -14
             draw_inst(root:g_root)
         case 3://D#
-            g_root = -1
+            g_root = -13
             draw_inst(root:g_root)
         case 4://E
-            draw_inst(root:0)
-            g_root = 0
+            g_root = -12
+            draw_inst(root:g_root)
         case 5://F
-            draw_inst(root:1)
-            g_root = 1
+            g_root = -11
+            draw_inst(root:g_root)
         case 6://F#
-            draw_inst(root:2)
-            g_root = 2
+            g_root = -10
+            draw_inst(root:g_root)
         case 7://G
-            draw_inst(root:-9)
             g_root = -9
+            draw_inst(root:g_root)
         case 8://G#
-            draw_inst(root:-8)
             g_root = -8
+            draw_inst(root:g_root)
         case 9://A
-            draw_inst(root:-7)
             g_root = -7
+            draw_inst(root:g_root)
         case 10://A#
-            draw_inst(root:-6)
             g_root = -6
+            draw_inst(root:g_root)
         case 11://B
-            draw_inst(root:-5)
             g_root = -5
+            draw_inst(root:g_root)
         default:
             print("")
         }
@@ -161,13 +163,32 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         let pdraw = DrawPiano(frame:CGRect(x:0,y:gy-10,width: 750,height: 230))
         self.view.addSubview(pdraw)
         
+        let x0 = 13
+        let d_key = 19
+        let p1 = 50
+        let p2 = 140
+        var n = 0
         
-        for k in 0...1{
+        for k in 0...3{
+            GMaj[n]   = root   + k*12 + 4
+            GMaj[n+1] = root+major[m_m*6  ] + k*12 + 4
+            GMaj[n+2] = root+major[m_m*6+1] + k*12 + 4
+            GMaj[n+3] = root+major[m_m*6+2] + k*12 + 4
+            GMaj[n+4] = root+major[m_m*6+3] + k*12 + 4
+            GMaj[n+5] = root+major[m_m*6+4] + k*12 + 4
+            GMaj[n+6] = root+major[m_m*6+5] + k*12 + 4
+            
+            n = n + 7
+        }
+        let root2 = root + 4
+        
             var ct = 0
             var oct = 0
-            if start[k] - root > 12 { oct = 1}
-            if start[k] - root > 24 { oct = 2}
-            for n in start[k]...50{
+            var oct2 = 0
+            var px = 0
+            var py = 0
+        
+            for n in 0...35{
                 for _ in 1...28
                 {
                     if(GMaj[ct] < n)
@@ -175,9 +196,11 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
                         ct = ct + 1
                     }
                 }
+
                 if(GMaj[ct]==n)
                 {
-                    let ex = n-root
+                
+                    let ex = n-root2
                     var b_root=false
                     
                     if ex == 0{
@@ -185,36 +208,87 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
                     }
                     else if (ex%12==0){
                         b_root = true
-                        oct = oct + 1
                     }
                     else{
                         b_root = false
                     }
                     
+                    if (GMaj[ct]>=12*(oct+1)){
+                        oct = oct + 1
+                    }
+                    if (ct>0 && ct%7==0){
+                        oct2 = oct2 + 1
+                    }
+                    switch(GMaj[ct]-12*oct)
+                    {
+                    case 0:
+                        px = x0 + 266*oct
+                        py = p2
+                    case 1:
+                        px = 30 + 266*oct
+                        py = p1
+                    case 2:
+                        px = x0 + 38*1 + 266*oct
+                        py = p2
+                    case 3:
+                        px = 30 + 38*1 + 266*oct
+                        py = p1
+                    case 4:
+                        px = x0 + 38*2 + 266*oct
+                        py = p2
+                    case 5:
+                        px = x0 + 38*3 + 266*oct
+                        py = p2
+                    case 6:
+                        px = 145  + 266*oct
+                        py = p1
+                    case 7:
+                        px = x0 + 38*4 + 266*oct
+                        py = p2
+                    case 8:
+                        px = 145 + 38*1 + 266*oct
+                        py = p1
+                    case 9:
+                        px = x0 + 38*5 + 266*oct
+                        py = p2
+                    case 10:
+                        px = 145 + 38*2 + 266*oct
+                        py = p1
+                    case 11:
+                        px = x0 + 38*6 + 266*oct
+                        py = p2
+                    default:
+                        print("aho--", terminator: "")
+                        
+                    }
+                   //print("SCale: \(GMaj[ct])"," ct:\(ct) ","oct:\(oct)","oct2:\(oct2)", separator: " ")
+                    
                     if b_root == true{
                         
-                        let testDraw = MojiDraw(frame: CGRect(x: neck+neck_w+(n-start[k]-1)*f_dh+(f_dh-10)/2-guitar_Mark/2, y:gy-dy+guitar_height-dh*k, width: notex, height: notey))
+                        let testDraw = MojiDraw(frame: CGRect(x: px, y:gy+py, width: notex, height: notey))
                         self.view.addSubview(testDraw)
+                       
                     }
                     else{
                         let testDraw = MojiDraw2()
                         testDraw.Minor = m_m
-                        testDraw.NoteNum = ct+1-oct*7
-                        testDraw.Note = GMaj[ct]-root-12*oct
+                        testDraw.NoteNum = ct+1-oct2*7
+                        testDraw.Note = GMaj[ct]-root2-12*oct2
+                        
+                        print("SCale: \(testDraw.Note)","GMaj[ct]-12*oct: \(GMaj[ct]-12*oct)", separator: " ")
+                        
                         if (testDraw.Note == 3 || testDraw.Note == 8 || testDraw.Note == 10){
-                            testDraw.frame = CGRect(x: neck-5+neck_w+(n-start[k]-1)*f_dh+(f_dh-10)/2-guitar_Mark/2, y:gy-dy+guitar_height-dh*k, width: notex+10, height: notey)
+                            testDraw.frame = CGRect(x: px , y:gy+py, width: notex+10, height: notey)
                         }
                         else{
-                            testDraw.frame = CGRect(x: neck+neck_w+(n-start[k]-1)*f_dh+(f_dh-10)/2-guitar_Mark/2, y:gy-dy+guitar_height-dh*k, width: notex, height: notey)
+                            testDraw.frame = CGRect(x: px, y:gy+py, width: notex, height: notey)
                         }
-                        //       testDraw = MojiDraw2(frame: CGRect(x: neck+neck_w+(n-start[k]-1)*f_dh+(f_dh-10)/2-guitar_Mark/2, y:84+guitar_height-dh*k, width: notex, height: notey))
                         self.view.addSubview(testDraw)
                         
                     }
-                    ct=ct+1
-                    
+                    ct = ct + 1
                 }
-            }
+            
         }
 
         
@@ -222,7 +296,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     func draw_guitar(root :Int)
     {
         var n = 0
-        for k in 0...3{
+        for k in 0...4{
             GMaj[n]   = root   + k*12
             GMaj[n+1] = root+major[m_m*6  ] + k*12
             GMaj[n+2] = root+major[m_m*6+1] + k*12
@@ -289,7 +363,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             var oct = 0
             if start[k] - root > 12 { oct = 1}
             if start[k] - root > 24 { oct = 2}
-            for n in start[k]...50{
+            if start[k] - root > 36 { oct = 3}
+            for n in start[k]...70{
                 for _ in 1...28
                 {
                     if(GMaj[ct] < n)
