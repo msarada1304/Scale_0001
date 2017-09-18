@@ -131,3 +131,89 @@ class MojiDraw2: UIView {
     
     
 }
+class MojiDraw3: UIView {
+    
+    var NoteNum = 1
+    var Minor = 1
+    var flat = 0
+    var Note = 0
+    
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(UIColor.white.cgColor)
+        
+        
+        if (Note == 1 || Note == 3 || Note == 6 || Note == 8 || Note == 10)
+        {
+            flat = 1
+        }
+        
+        
+        //矩形
+        
+        context!.fill(CGRect(x:0,y:0,width:15+flat*9,height:20))
+        //文字属性
+        let att = [
+            NSFontAttributeName: UIFont(name: "Courier", size: 20.0)!,
+            NSForegroundColorAttributeName: UIColor.black]
+        
+        //文字描画
+        switch Note {
+        case 1:
+            NSString(format:"b%d",Note+1).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 2:
+            NSString(format:"%d",Note).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 3:
+            NSString(format:"b%d",Note).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 4:
+            NSString(format:"%d",Note-1).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 5:
+            NSString(format:"%d",Note-1).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 6:
+            NSString(format:"b%d",Note-1).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 7:
+            NSString(format:"%d",Note-2).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 8:
+            NSString(format:"b%d",Note-2).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 9:
+            NSString(format:"%d",Note-3).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 10:
+            NSString(format:"b%d",Note-3).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+        case 11:
+            NSString(format:"%d",Note-4).draw(at:CGPoint(x:0,y:0),withAttributes:att)
+            
+        default:
+            print("aho")
+            
+        }
+        /* let i = Note
+         
+         if (flat == 1)
+         {
+         NSString(format:"b%d",i).draw(at:CGPoint(x:2,y:0),withAttributes:att)
+         }
+         else{
+         NSString(format: "%d",i).draw(at:CGPoint(x:2,y:0),withAttributes:att)
+         }
+         */
+        let line = UIBezierPath();
+        // 起点
+        line.move(to: CGPoint(x: 0, y: 0));
+        // 帰着点
+        line.addLine(to: CGPoint(x: 15+flat*9, y: 0));
+        line.addLine(to: CGPoint(x: 15+flat*9, y: 20));
+        line.addLine(to: CGPoint(x: 0, y: 20));
+        
+        line.close()
+        // 色の設定
+        UIColor.black.setStroke()
+        // ライン幅
+        line.lineWidth = 1
+        // 描画
+        line.stroke();
+    }
+    
+    
+}
+

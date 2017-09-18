@@ -55,7 +55,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     let major   = [2,4,5,7,9,11, //major
         2,3,5,7,8,10, //minor_nat
         2,4,7,7,9,9, //major penta
-        3,5,7,7,10,10] //minor_penta
+        3,5,7,7,10,10,//minor_penta
+        2,3,5,7,9,10, //dorian
+        1,3,5,6,8,10]//locrian
     
     @IBAction func Instruments_hitButton(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -98,6 +100,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             draw_inst(root: g_root)
         case 3:
             m_m = 3
+            draw_inst(root: g_root)
+        case 4:
+            m_m = 4
+            draw_inst(root: g_root)
+        case 5:
+            m_m = 5
             draw_inst(root: g_root)
         default:
             print("")
@@ -164,6 +172,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         self.view.addSubview(pdraw)
         
         let x0 = 13
+        let x2 = 25
         let d_key = 19
         let p1 = 50
         let p2 = 140
@@ -225,13 +234,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
                         px = x0 + 266*oct
                         py = p2
                     case 1:
-                        px = 30 + 266*oct
+                        px = x2 + 266*oct
                         py = p1
                     case 2:
                         px = x0 + 38*1 + 266*oct
                         py = p2
                     case 3:
-                        px = 30 + 38*1 + 266*oct
+                        px = x2 + 38*1 + 266*oct
                         py = p1
                     case 4:
                         px = x0 + 38*2 + 266*oct
@@ -240,19 +249,19 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
                         px = x0 + 38*3 + 266*oct
                         py = p2
                     case 6:
-                        px = 145  + 266*oct
+                        px = x2+115  + 266*oct
                         py = p1
                     case 7:
                         px = x0 + 38*4 + 266*oct
                         py = p2
                     case 8:
-                        px = 145 + 38*1 + 266*oct
+                        px = x2+115 + 38*1 + 266*oct
                         py = p1
                     case 9:
                         px = x0 + 38*5 + 266*oct
                         py = p2
                     case 10:
-                        px = 145 + 38*2 + 266*oct
+                        px = x2+115 + 38*2 + 266*oct
                         py = p1
                     case 11:
                         px = x0 + 38*6 + 266*oct
@@ -270,14 +279,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
                        
                     }
                     else{
-                        let testDraw = MojiDraw2()
+                        let testDraw = MojiDraw3()
                         testDraw.Minor = m_m
                         testDraw.NoteNum = ct+1-oct2*7
                         testDraw.Note = GMaj[ct]-root2-12*oct2
                         
                         print("SCale: \(testDraw.Note)","GMaj[ct]-12*oct: \(GMaj[ct]-12*oct)", separator: " ")
                         
-                        if (testDraw.Note == 3 || testDraw.Note == 8 || testDraw.Note == 10){
+                        if (testDraw.Note == 1 || testDraw.Note == 3 || testDraw.Note == 6 || testDraw.Note == 8 || testDraw.Note == 10){
                             testDraw.frame = CGRect(x: px , y:gy+py, width: notex+10, height: notey)
                         }
                         else{
