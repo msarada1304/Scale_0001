@@ -57,7 +57,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         2,4,7,7,9,9, //major penta
         3,5,7,7,10,10,//minor_penta
         2,3,5,7,9,10, //dorian
-        1,3,5,6,8,10]//locrian
+        2,4,6,7,9,11]//lydian
     
     @IBAction func Instruments_hitButton(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
